@@ -7,3 +7,6 @@
 - install
   - node.js (npm)
   - dotnet
+
+### start
+> dotnet run

@@ -3,19 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hello React 4</title>
+  <title>Hello React 5 - JSX</title>
+  <!-- add bootstrap cdn-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
   <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
   <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
-  <!-- add cdn babel -->
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
 <body>
   <div id="root"></div>
-  <!-- type check (javascript -> babel) -->
   <script type="text/babel">
     // JSX를 사용하여 HTML을 Javascript로 변환
     ReactDOM.render(
-        <div><h1>안녕하세요.</h1></div>,
+        (
+          // class 는 className 으로 사용해야 함
+          <div className="container mb-2">
+            <div className="row">
+              <div className="col-2">
+                C#
+              </div>
+              <div className="col-10">
+                내용
+              </div>
+            </div>
+          </div>
+        ),
         document.getElementById("root")
     );
   </script>
