@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hello React 12 - 상태 관리와 클릭 이벤트</title>
+  <title>Hello React 13 - 컬렉션 형태의 데이터 출력</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
   <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
@@ -34,22 +34,30 @@
     }
 
     // 구조 파괴 할당
-    function BookCard({ title, description, price }) {
+    function BookCard({ title, description, price, content, imageUrl, cardLink }) {
       return (
         <div className="container mb-2">
-          <div className="row">
-            <div className="col-12">
-              {title}
+          <div className="row" style={{'cursor': 'pointer'}}>
+            <div className="col-2 p-1 card">
+              <span className="d-none">{title}</span>
+              <span className="">
+                <img src={imageUrl} alt={title} className="img-fluid" />
+              </span>
             </div>
-          </div>
-          <div className="row">
-            <div className="col-2">
-              {title}
-            </div>
-            <div className="col-10">
-              {description}
-              <hr />
-              {price + '원'}
+            <div className="col-10 p-1 card">
+              <h2 className="card-header">
+                <a href={cardLink} target="_blank"><strong>{title}</strong></a>
+              </h2>
+              <p>
+                <strong>{description}</strong>
+                <br />
+                {content}
+              </p>
+              <div className="p-1" style={{"marginTop": "auto"}}>
+                <a href="/BookList"><span className="badge badge-primary">학습 가이드</span></a>
+                <a href="/BookList/Errata.aspx"><span className="badge badge-secondary">오탈자 정보</span></a>
+                <a href="/BoardIndex?BoardName=Qna"><span className="badge badge-danger">Q&amp;A</span></a>
+              </div>
             </div>
           </div>
         </div>
@@ -73,22 +81,37 @@
               <button onClick={ () => { this.setState({theme: 'blue'}); } }>Blue 1</button>
               <button onClick={ this.blueTheme }>Blue 2</button>
             </div>
-            <BookCard title="ASP.NET &amp; Core를 다루는 기술" description="ASP.NET &amp; Core를 다루는 기술 교과서 책입니다." price={ 55000 } />
-            <BookCard title={seeSharp.title} description={seeSharp.description} price={ 30000 } />
+            {
+              this.props.books.map(book => {
+                return <BookCard key={book.id} title={book.title} description={book.description} price={book.price} 
+                                content={book.content} imageUrl={book.imageUrl} cardLink={book.cardLink} />
+              })
+            }
           </>
         );
       } 
     }
 
+    const books = [
+      { id: 1, title: "C# 교과서", description: "C#", content: "C# 쓰임새...", 
+        price: 30000, imageUrl: "https://www.dotnetkorea.com/Books/images/SeeSharpBook.png",
+        cardLink: "https://www.gilbut.co.kr/book/view?bookcode=BN002765" },
+      { id: 2, title: "ASP.NET & Core를 다루는 기술", description: "ASP.NET Core", content: "Microsoft 웹 개발 기술의 집합체...", 
+        price: 55000, imageUrl: "https://www.dotnetkorea.com/Books/images/AspNetCore.jpg",
+        cardLink: "https://www.gilbut.co.kr/book/view?bookcode=BN001561" }
+    ];
+
     // 클래스형 컴포넌트 :ES6 문법
     // React.Component 를 상속
     // render 함수를 사용하여 반환
     class BookApp extends React.Component {
+
+
       render() {
         return (
           <>
             <BookTitle />
-            <BookList sortOrder="ASC" />
+            <BookList sortOrder="ASC" books={ books } />
             <BookFooter />
             <Copyright />
           </>
