@@ -9,7 +9,10 @@ import reportWebVitals from './reportWebVitals';
 import SeeSharpGuide from './components/Books/SeeSharpGuide';
 
 ReactDOM.render(
-  <SeeSharpGuide />
+  // <SeeSharpGuide />
+  <BrowserRouter>
+    <App /> 
+  </BrowserRouter>
   ,
   document.getElementById("root"));
 
