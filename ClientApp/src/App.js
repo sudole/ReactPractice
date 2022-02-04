@@ -11,6 +11,8 @@ import './custom.css'
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import ReactFragementDemo from './components/Samples/ReactFragmentDemo';
+
 export default class App extends Component {
   static displayName = App.name;
 
@@ -22,6 +24,7 @@ export default class App extends Component {
         <Route path='/fetch-data' component={FetchData} />
         <Route path='/about' component={About} />
         <Route path='/contact' component={Contact} />
+        <Route path='/ReactFragmentDemo' component={ReactFragementDemo} />
       </Layout>
     );
   }
