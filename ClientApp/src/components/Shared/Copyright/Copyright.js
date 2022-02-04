@@ -2,9 +2,11 @@ import React, { Component } from "react";
 
 export class Copyright extends Component {
     render() {
+        const date = new Date();
+        const year = date.getFullYear();
         return (
             <div className="text-center">
-                Copyright &copy; 2020 <em>ReactMemo</em> all right reserved.
+                Copyright &copy; {year * 1} <em>ReactMemo</em> all right reserved.
             </div>
         );
     }

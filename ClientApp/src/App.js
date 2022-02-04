@@ -9,6 +9,7 @@ import { Contact } from './components/Contact';
 
 import './custom.css'
 import './App.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default class App extends Component {
   static displayName = App.name;
