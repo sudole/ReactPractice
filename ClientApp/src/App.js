@@ -13,6 +13,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import ReactFragementDemo from './components/Samples/ReactFragmentDemo';
 import StateDescription from './StateDescription';
+import OnClickEventHandler from './OnClickEventHandler';
 
 export default class App extends Component {
   static displayName = App.name;
@@ -27,6 +28,7 @@ export default class App extends Component {
         <Route path='/contact' component={Contact} />
         <Route path='/ReactFragmentDemo' component={ReactFragementDemo} />
         <Route path='/StateDescription' component={StateDescription} />
+        <Route path='/OnClickEventHandler' component={OnClickEventHandler} />
       </Layout>
     );
   }
