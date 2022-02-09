@@ -15,6 +15,7 @@ import ReactFragementDemo from './components/Samples/ReactFragmentDemo';
 import StateDescription from './StateDescription';
 import OnClickEventHandler from './OnClickEventHandler';
 import { OneWayBinding } from './components/Demos/OneWayBinding/OneWayBinding';
+import TodoListInMemory from './components/TodoListInMemory';
 
 export default class App extends Component {
   static displayName = App.name;
@@ -31,6 +32,7 @@ export default class App extends Component {
         <Route path='/StateDescription' component={StateDescription} />
         <Route path='/OnClickEventHandler' component={OnClickEventHandler} />
         <Route path='/OneWayBinding' component={OneWayBinding} />
+        <Route path='/TodoListInMemory' component={TodoListInMemory} />
       </Layout>
     );
   }
