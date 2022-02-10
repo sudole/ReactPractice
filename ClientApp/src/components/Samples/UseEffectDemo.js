@@ -6,12 +6,12 @@ function UseEffectDemo() {
     /*
     // 페이지가 로드되거나 변경될때
     useEffect(() => {
-        console.log("페이지 로드 또는 변경")
+        console.log("페이지 로드 또는 변경");
     });
     */
    // 페이지가 처음 로드 될때만
     useEffect(() => {
-        console.log("페이지 로드")
+        console.log("페이지 로드");
     }, []);
 
     return (
