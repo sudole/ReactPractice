@@ -20,6 +20,7 @@ import FunctionStateDemo from './components/Samples/FunctionStateDemo';
 import UseEffectDemo from './components/Samples/UseEffectDemo';
 import UseEffectFetchApi from './components/Samples/UseEffectFetchApi';
 import FetchApiPractice from './components/FetchApiPractice';
+import TextBoxOnChangeEventHandler from './components/TextBoxOnChangeEventHandler';
 
 export default class App extends Component {
   static displayName = App.name;
@@ -41,6 +42,7 @@ export default class App extends Component {
         <Route path='/UseEffectDemo' component={UseEffectDemo} />
         <Route path='/UseEffectFetchApi' component={UseEffectFetchApi} />
         <Route path='/FetchApiPractice' component={FetchApiPractice} />
+        <Route path='/TextBoxOnChangeEventHandler' component={TextBoxOnChangeEventHandler} />
       </Layout>
     );
   }
